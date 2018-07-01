@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <!--pour que Responsive soit appliquée au téléphone mobile, il faut réajuster les largeurs des appareils (device-width)-->
+    <meta name="viewport" content="width=device-width,initial scale=1" />
     <title>@Page.Title</title>
     <!-- lorsque les pages ont un entête différent, on utilise AT_RenderSection-->
     <!--   at RenderSection("head", required: false) -->
@@ -15,6 +17,7 @@
     <!--navbar : partie fixe-->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
             <div class="navbar-header">
                 <!--data-toggle : l'action qui va se produire (collapse). L'action est appliquée sur tout le navbar qui a un ID="navbar"-->
                 
@@ -40,19 +43,19 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
+                            <i class="glyphicon glyphicon-folder-open"></i>
                             Offers Types
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
+                            <i class="glyphicon glyphicon-info-sign"></i>
                             About Website
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
+                            <i class="glyphicon glyphicon-envelope"></i>
                             Contact Us
                         </a>
                     </li>
@@ -77,9 +80,57 @@
         </div>
     </nav>
 
+    <!-- partie variable-->
     @RenderBody()
 
     <!--footer : partie fixe-->
+    <footer class="navbar navbar-fixed-bottom myfooter"> <!--class .myfooter à créer-->
+        <div class="container">
+            <!--row est sous forme de Grid contenant 12 colonnes-->
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        Description
+                    </h3>
+                    <p>
+                        ASP.NET is an open source web framework for building modern web apps and services with .NET. ASP.NET creates websites based on HTML5, CSS, and JavaScript that are simple, fast, and can scale to millions of users.
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        Important Links
+                    </h3>
+                    <ul>
+                        <li><a href="#">Jobs for the public sector</a></li>
+                        <li><a href="#">Jobs for the prived sector</a></li>
+                        <li><a href="#">International Jobs</a></li>
+                        <li><a href="#">Other Jobs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        Social Medias
+                    </h3>
+                    <ul>
+                        <li><a href="#">Our Facebook Page</a></li>
+                        <li><a href="#">Follow Us on Twitter</a></li>
+                        <li><a href="#">Watch on Youtube</a></li>
+                        <li><a href="#">Send us a Message</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="subfooter">
+            <!--.subfooter à créer-->
+            <span>All Rights Reserved For Job Offers Website &copy; - 2018</span>
+        </div>
+    </footer>
 
     <!--Appel des Scripts : Il faut appeler jQuery le premier-->
     <script src="~/Scripts/jquery-1.10.2.js"></script>

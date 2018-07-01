@@ -32,3 +32,29 @@
     height: 75px;
     padding-top: 10px;
 }
+
+/*START - Styles for Footer*/
+.myfooter{
+    background-color:cornflowerblue;
+    padding:10px;
+    font-family:MyEnglishFont1;
+    text-align : justify
+}
+.subfooter {
+    background-color: #0c5c85;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+}
+.myfooter a{
+    color : azure
+}
+.myfooter p{
+    color: azure
+}
+.myfooter h3,ul,p{
+    margin-bottom:20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    list-style-type:none
+}
+/*END - Styles for Footer*/

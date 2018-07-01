@@ -121,6 +121,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\font\trench100free.otf" />
+    <Content Include="Content\font\trench100free.ttf" />
+    <Content Include="Content\font\Impregnable_Personal_Use_Only.ttf" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
