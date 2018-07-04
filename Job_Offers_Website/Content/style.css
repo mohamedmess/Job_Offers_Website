@@ -9,6 +9,10 @@
     src: url('font/Impregnable_Personal_Use_Only.ttf') format('truetype');
 }
 
+body{
+    margin-top: 100px
+}
+
 .navbar-default {
     background-color: #0c5c85;
     border-color: #e7e7e7;
@@ -58,3 +62,11 @@
     list-style-type:none
 }
 /*END - Styles for Footer*/
+
+/*START : Logo Styles*/
+.logo-size{
+    width : 120px;
+    height : 62px;
+    margin-top : -7px
+}
+/*END : Logo Styles*/

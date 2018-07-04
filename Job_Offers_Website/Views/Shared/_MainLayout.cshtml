@@ -28,7 +28,7 @@
                 </button>
                 <!--Logo-->
                 <a href="#" class="navbar-brand">
-                    <img src="#" />
+                    <img src="~/images/logo.png" class="logo-size" />
                 </a>
             </div>
 
@@ -81,7 +81,12 @@
     </nav>
 
     <!-- partie variable-->
-    @RenderBody()
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+   
 
     <!--footer : partie fixe-->
     <footer class="navbar navbar-fixed-bottom myfooter"> <!--class .myfooter à créer-->
