@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication2.Models
@@ -64,6 +65,11 @@ namespace WebApplication2.Models
 
     public class RegisterViewModel
     {
+        // On ajoute le nom d'utilisateur au Model 
+        [Required]
+        [DisplayName("User Name")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Courrier électronique")]
@@ -79,6 +85,9 @@ namespace WebApplication2.Models
         [Display(Name = "Confirmer le mot de passe ")]
         [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
+
+        
+
     }
 
     public class ResetPasswordViewModel
