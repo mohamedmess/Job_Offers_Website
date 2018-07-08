@@ -139,6 +139,9 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            // on va remplir une liste contenant les deux types des utilisateurs 'Publisher' et 'Researcher'
+            // puis on va envoyer cette liste pour être affichée dans (View) la page Register.cshtml
+            ViewBag.UserType = new SelectList(new[] { "Publisher", "Researcher" });
             return View();
         }
 
@@ -150,9 +153,11 @@ namespace WebApplication2.Controllers
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {
+            {   // pour qu'on trouve pas d'erreur, on va remplir la liste ici
+                ViewBag.UserType = new SelectList(new[] { "Publisher", "Researcher" });
+
                 // on peut ajouter les champs ajoutés dans Model et View comme UserName
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email /*, Country=model.Country*/ };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserType = model.UserType /*, Country=model.Country*/ };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

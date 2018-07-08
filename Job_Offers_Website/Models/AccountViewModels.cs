@@ -70,20 +70,25 @@ namespace WebApplication2.Models
         [DisplayName("User Name")]
         public string UserName { get; set; }
 
+        // On ajoute le Type d'utilisateur au Model 
+        [Required]
+        [DisplayName("Type of Account")]
+        public string UserType{ get; set; }
+
         [Required]
         [EmailAddress]
-        [Display(Name = "Courrier électronique")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The Text {0} must contains {2} caracters at Least.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Mot de passe")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirmer le mot de passe ")]
-        [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
+        [Display(Name = "Confirm Password ")]
+        [Compare("Password", ErrorMessage = "The password and password confirmation are not the same !")]
         public string ConfirmPassword { get; set; }
 
         
