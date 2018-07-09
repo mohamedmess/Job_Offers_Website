@@ -33,5 +33,7 @@ namespace WebApplication2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Job_Offers_Website.Models.Category> Categories { get; set; }
     }
 }
