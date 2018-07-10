@@ -31,9 +31,10 @@
         </td>
         <!--On ajoute ces Linkbutton pour chaque element dans le tableau -->
         <td>
-            @Html.ActionLink("Edit Category", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Category Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete Category", "Delete", new { id=item.Id })
+            <!--Html.ActionLink("displayed text", "name of the page in Views/Categories/")-->
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

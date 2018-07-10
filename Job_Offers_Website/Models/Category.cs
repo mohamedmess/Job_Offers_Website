@@ -17,5 +17,8 @@ namespace Job_Offers_Website.Models
         [Required]
         [Display(Name ="Description of Category")]
         public string CategoryDescription { get; set; }
+
+        /*une catégorie peut comporter plusieurs Jobs*/
+        public ICollection<Job> Jobs { get; set; }
     }
 }
