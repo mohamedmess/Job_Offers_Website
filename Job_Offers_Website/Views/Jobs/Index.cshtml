@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>View Jobs</h2>
+<h2>List of Jobs</h2>
 
 <p>
     @Html.ActionLink("Create New Job", "Create")
@@ -39,7 +39,7 @@
             @Html.DisplayFor(modelItem => item.JobContent)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JobImage)
+            <img src="~/Uploads/@Html.DisplayFor(modelItem => item.JobImage)" class="thumbnail" style="width:48px; height:48px" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

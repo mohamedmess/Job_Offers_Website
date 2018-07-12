@@ -7,7 +7,10 @@
 
 <h2>Create Job</h2>
 
-@using (Html.BeginForm()) 
+<!--Lorsqu'on clique sur le bouton submit, on appelle la méthode Create dans JobsController, 
+    puisqu'on utilise File Upload pour télécharger les images, il faut utiliser enctype = "multipart/form-data" qui est 
+    à son tour travaille si FormMethod.Post est activée-->
+@using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new {enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -31,10 +34,12 @@
             </div>
         </div>
 
+        <!--Il faut utiliser FileUpload pour choisir l'image pour la transférer à un dossier sous le projet
+            et envoyer l'url vers la base de données-->
         <div class="form-group">
             @Html.LabelFor(model => model.JobImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.JobImage, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" name="upload" />
                 @Html.ValidationMessageFor(model => model.JobImage, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -8,11 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using Job_Offers_Website.Models;
 using WebApplication2.Models;
+using System.IO; // Ce namespace nous permet de travailler avec les fichiers, dossiers, les repertoires, etc
 
 namespace Job_Offers_Website.Controllers
 {
     public class JobsController : Controller
     {
+        /*ApplicationDbContext définit la relation avec notre base de données
+         db est la base de données qu'on va la traiter*/
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Jobs
@@ -49,11 +52,14 @@ namespace Job_Offers_Website.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,JobTitle,JobContent,JobImage,CategoryId")] Job job)
+        public ActionResult Create(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
-                db.Jobs.Add(job);
+                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                upload.SaveAs(path); //enregistrer le chemin dans le serveur (monprojet/Uploads)
+                job.JobImage = upload.FileName; // affecter le chemin de l'image au champ de l'objet job
+                db.Jobs.Add(job); //ajouter un job dans la table Jobs de la base de données db qui est définit tout en haut de ce fichier
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -83,10 +89,14 @@ namespace Job_Offers_Website.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,JobTitle,JobContent,JobImage,CategoryId")] Job job)
+        public ActionResult Edit(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                upload.SaveAs(path); //enregistrer le chemin dans le serveur (monprojet/Uploads)
+                job.JobImage = upload.FileName; // affecter le chemin de l'image au champ de l'objet job
+
                 db.Entry(job).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -19,6 +19,6 @@ namespace Job_Offers_Website.Models
         public string CategoryDescription { get; set; }
 
         /*une catégorie peut comporter plusieurs Jobs*/
-        public ICollection<Job> Jobs { get; set; }
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }
