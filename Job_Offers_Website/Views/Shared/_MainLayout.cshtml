@@ -130,5 +130,8 @@
     <!--Appel des Scripts : Il faut appeler jQuery le premier-->
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!--Cette section va être appelée dans toutes l-->
+    @RenderSection("scripts", required:false) 
 </body>
 </html>
