@@ -51,7 +51,7 @@ namespace Job_Offers_Website.Controllers
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] // for security
         public ActionResult Create(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)

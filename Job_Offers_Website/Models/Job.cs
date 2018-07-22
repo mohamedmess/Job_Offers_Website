@@ -23,7 +23,7 @@ namespace Job_Offers_Website.Models
         [DisplayName("Job Category")]
         public int CategoryId { get; set; }
 
-        /*un Job appartient à une catégorie, on ajoute 'virtual' pour activer Lasy Loading
+        /*un seul Job appartient à une seule catégorie, on ajoute 'virtual' pour activer Lazy Loading
          voir: https://www.c-sharpcorner.com/article/lazy-loading-in-asp-net-mvc/ */
         public virtual Category Category { get; set; }
 

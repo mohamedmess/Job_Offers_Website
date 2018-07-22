@@ -7,12 +7,12 @@
 
 <h2>Create Job</h2>
 
-<!--Lorsqu'on clique sur le bouton submit, on appelle la méthode Create dans JobsController, 
+<!--Lorsqu'on clique sur le bouton submit, on appelle la méthode Create dans Controllers/JobsController.cs, 
     puisqu'on utilise File Upload pour télécharger les images, il faut utiliser enctype = "multipart/form-data" qui est 
     à son tour travaille si FormMethod.Post est activée-->
 @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new {enctype = "multipart/form-data"}))
 {
-    @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken() // For security
     
     <div class="form-horizontal">
         <h4>Job Informations</h4>
@@ -63,3 +63,19 @@
 <div>
     @Html.ActionLink("Back to Jobs", "Index")
 </div>
+
+<!-- Il faut importer le jQuery pour que le script fonctionne-->
+<!--la section se réferre au RenderSection crée dans _MainLayout.cshtml-->
+@section scripts{
+    <script>
+            $(function () {
+                $("#save").click(function () {
+                    if ($("#JobImage").val() == "") { // si la place d'image est vide
+                        $("#error-div").fadeIn(2000); // faire appraitre le div crée en haut avec son id="error-div" sa prend 2 secondes
+                        $("#view-err").append("You might select an image for this Job"); // afficher un message d'erreur dans le span qui a un id="view-err"
+                        return false; // IMPORTANT - pour qu'il n'envoie pas les données
+                    }
+                });
+            });
+    </script>
+}

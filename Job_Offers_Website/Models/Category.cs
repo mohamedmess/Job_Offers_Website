@@ -18,7 +18,7 @@ namespace Job_Offers_Website.Models
         [Display(Name ="Description of Category")]
         public string CategoryDescription { get; set; }
 
-        /*une catégorie peut comporter plusieurs Jobs*/
+        /*une seule catégorie peut comporter plusieurs Jobs || on ajoute 'virtual' pour activer Lazy Loading*/
         public virtual ICollection<Job> Jobs { get; set; }
     }
 }
